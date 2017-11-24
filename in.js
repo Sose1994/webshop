@@ -11,16 +11,24 @@ const mongodburl = 'mongodb://sose:1234@cluster0-shard-00-00-vnc24.mongodb.net:2
 const publicPath = __dirname + '/public';
 
 app.use(express.static('public'));
+app.use(express.static('static'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-
 
 app.get('/stuffies', function(req, res)
 {
 	res.sendFile(publicPath + '/index.html');
 });
 
+app.get('/cuteness', function(req, res)
+{
+	res.sendFile(publicPath + '/cuteness.html');
+});
 
+app.get('/customerlist', function(req, res)
+{
+	res.sendFile(publicPath + '/customerlist.html');
+});
 
 //Read all
 app.get('/customer', function(req, res)

@@ -12,4 +12,4 @@ MongoClient.connect(mongodburl, function(err, db)
 	{
 		console.log('Connected to db: ' + db.databaseName);
 	}
-})
+});

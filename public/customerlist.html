@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>customer list</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+		$.getJSON('customer', function (data) {
+			var html = '';
+			
+			$.each(data, function () {
+				html += '<ol>';
+				$.each(this, function (key, val) {
+					html += ('<li>' + key + ': ' + val + '</li>');
+				});
+				html += '</ol> <hr style= "width: 300px;">';
+			});
+			$('#custom').html(html);
+		});
+	</script>
+</head>
+<body>
+	<h1>List overview of Customers</h1>
+
+	<div id="custom">
+	
+	</div>
+
+</body>
+</html>
