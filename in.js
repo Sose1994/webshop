@@ -96,5 +96,6 @@ app.delete('/customer/:id', function(req, res)
 })
 
 
+app.listen(process.env.PORT || 3500);
+//app.listen(3500);
 
-app.listen(3500);
