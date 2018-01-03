@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
 const patthh = require('path');
-//const app = require('express').express();
 const bodyParser = require('body-parser');
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const mongodburl = 'mongodb://sose:1234@cluster0-shard-00-00-vnc24.mongodb.net:27017,cluster0-shard-00-01-vnc24.mongodb.net:27017,cluster0-shard-00-02-vnc24.mongodb.net:27017/webshop-kea?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+const mongodburl = process.env.DB_URL;
 
 const publicPath = __dirname + '/public';
 
@@ -14,6 +13,11 @@ app.use(express.static('public'));
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
+
+app.get('/', function(req, res)
+{
+	res.sendFile(publicPath + '/homepage.html');
+});
 
 app.get('/stuffies', function(req, res)
 {
@@ -39,7 +43,6 @@ app.get('/customer', function(req, res)
 
 		col.find().toArray(function (err, result)
 		{
-			//console.log(result);
 			res.json(result);
 		});
 		db.close();
