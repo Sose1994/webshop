@@ -19,7 +19,7 @@ app.get('/', function(req, res)
 	res.sendFile(publicPath + '/homepage.html');
 });
 
-/*app.get('/stuffies', function(req, res)
+app.get('/stuffies', function(req, res)
 {
 	res.sendFile(publicPath + '/index.html');
 });
@@ -32,7 +32,7 @@ app.get('/cuteness', function(req, res)
 app.get('/customerlist', function(req, res)
 {
 	res.sendFile(publicPath + '/customerlist.html');
-});*/
+});
 
 //Read all
 app.get('/customer', function(req, res)
