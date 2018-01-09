@@ -29,10 +29,11 @@ app.get('/cuteness', function(req, res)
 	res.sendFile(publicPath + '/cuteness.html');
 });
 
+*/
 app.get('/customerlist', function(req, res)
 {
 	res.sendFile(publicPath + '/customerlist.html');
-});*/
+});
 
 //Read all
 app.get('/customer', function(req, res)
