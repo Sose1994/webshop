@@ -189,6 +189,8 @@ app.put('/customers/:id', function (req, res) {
         });
     });
 
+
+/*
 ///////////////////////////////////
 //ORDERS
 /////////////////////////////////
@@ -233,7 +235,7 @@ app.post('/orders/', function (req, res) {
                 ordersTotal.user = result;      
         });
 
-        ordersTotal.products = [];
+        //ordersTotal.products = [];
 
         req.body.products.forEach(function(element, index, array) {
             
@@ -291,7 +293,78 @@ app.put('/orders/:id', function (req, res) {
             db.close();
         });
     });
+*/
 
+app.get('/orders', function (req, res) {
+    MongoClient.connect(mongodburl, function (err, db) {
+
+        var col = db.collection('order');
+        // Read All
+        col.find().toArray(function (err, result) {
+            //res.setHeader('Access-Control-Allow-Origin', '*');
+            res.json(result);
+        });
+        db.close();
+    });
+});
+
+// READ (one)
+app.get('/orders/:id', function (req, res) {
+
+    MongoClient.connect(mongodburl, function (err, db) {
+        var col = db.collection('order');
+
+        col.findOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
+            res.json(result);
+        })
+        db.close();
+    });
+});
+
+// CREATE
+app.post('/orders/', function (req, res) {
+
+    MongoClient.connect(mongodburl, function (err, db) {
+        var col = db.collection('order');
+
+        col.insertOne(req.body, function (err, result) {
+            //res.status(201);
+            res.json({ msg: 'Customer Created' });
+        })
+        db.close();
+    });
+});
+
+// DELETE
+app.delete('/orders/:id', function (req, res) {
+
+    MongoClient.connect(mongodburl, function (err, db) {
+        var col = db.collection('order');
+
+        col.deleteOne({ '_id': ObjectId(req.params.id) }, function (err, result) {
+            //res.status(204);
+            res.json();
+
+        });
+
+        db.close();
+    });
+});
+
+
+// UPDATE
+app.put('/orders/:id', function (req, res) {
+    
+        MongoClient.connect(mongodburl, function (err, db) {
+            var col = db.collection('order');
+    
+            col.updateOne({ '_id': ObjectId(req.params.id) }, {$set : req.body}, function(err, result){
+                //res.status(204);
+                res.json();
+            });
+            db.close();
+        });
+    });
 
 
 app.listen(process.env.PORT || 3500);
