@@ -34,6 +34,11 @@ app.get('/customerlist', function(req, res)
 	res.sendFile(publicPath + '/customerlist.html');
 });
 
+app.get('/orderform', function(req, res)
+{
+    res.sendFile(publicPath + '/orderform.html');
+});
+
 //Read all
 app.get('/customer', function(req, res)
 {
