@@ -3,8 +3,7 @@
 <head>
 	<title>Products</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles/product-style.css">
-
+	<link rel="stylesheet" type="text/css" href="static/styles/product-style.css">
 	<script type="text/javascript">
 		$.getJSON('product', function (data) {
 			var html = '';
@@ -22,7 +21,12 @@
 </head>
 
 <body>
-
+	<div class="topnav" id="myTopnav">
+  <a class="active" href="/stuffies">Home</a>
+  <a href="/customerlist">Customers</a>
+  <a href="/products">Products</a>
+  <a href="/orders">Orders</a>
+	</div>
 	<h1>Available Products</h1>
 
 	<div id="prod"></div>
