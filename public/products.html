@@ -1,4 +1,3 @@
-<!---
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,52 +41,4 @@
 	</ul>
 </footer>
 </html>
--->
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>customer list</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/customers-style.css">
-
-	<script type="text/javascript">
-		$.getJSON('customer', function (data) {
-			var html = '';
-			
-			$.each(data, function () {
-				html += '<ol>';
-				$.each(this, function (key, val) {
-					html += ('<li>' + key + ': ' + val + '</li>');
-				});
-				html += '</ol> <hr style= "width: 300px;">';
-			});
-			$('#custom').html(html);
-		});
-	</script>
-</head>
-
-<body>
-	<div class="topnav" id="myTopnav">
-  <a class="active" href="/stuffies">Home</a>
-  <a href="/customerlist">Customers</a>
-  <a href="/products">Products</a>
-  <a href="/orders">Orders</a>
-	</div>
-	<h1>List overview ppp of Customers</h1>
-
-	<div id="custom">
-	
-	</div>
-
-</body>
-<footer>
-	<ul class="bottomlinks">
-		<li> <a href="http://www.kea.dk/da/" style="padding-right: 15px;">KEA</a> </li>
-		<li> <a href="/cuteness" style="padding-left: 2px; padding-right: 10px;">Go Cute </a>  </li>
-		<li> <a href="/stuffies" style="padding-left: 2px; padding-right: 10px;">Create Customer </a>  </li>
-
-	</ul>
-</footer>
-</html>
+--->

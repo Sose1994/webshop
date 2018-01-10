@@ -39,6 +39,11 @@ app.get('/orderform', function(req, res)
     res.sendFile(publicPath + '/orderform.html');
 });
 
+app.get('/products', function(req, res)
+{
+    res.sendFile(publicPath + '/products.html');
+});
+
 //Read all
 app.get('/customer', function(req, res)
 {
