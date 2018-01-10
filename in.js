@@ -39,12 +39,12 @@ app.get('/orderform', function(req, res)
     res.sendFile(publicPath + '/orderform.html');
 });
 
-app.get('/products', function(req, res)
+app.get('/productlist', function(req, res)
 {
     res.sendFile(publicPath + '/products.html');
 });
 
-app.get('/orders', function(req, res)
+app.get('/orderlist', function(req, res)
 {
     res.sendFile(publicPath + '/orders.html');
 });
