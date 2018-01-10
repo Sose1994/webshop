@@ -99,3 +99,14 @@ body
     background-color: #4CAF50;
     color: white;
 }
+
+#photos
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+
+
