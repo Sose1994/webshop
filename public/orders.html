@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>product list</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+		$.getJSON('order', function (data) {
+			var html = '';
+			
+			$.each(data, function () {
+				html += '<ol>';
+				$.each(this, function (key, val) {
+					html += ('<li>' + key + ': ' + val + '</li>');
+				});
+				html += '</ol> <hr style= "width: 300px;">';
+			});
+			$('#ord').html(html);
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+		
+	</header>
+	<h1>List overview of Customers</h1>
+
+	<div id="ord">
+	
+	</div>
+
+</body>
+<footer>
+	<ul class="bottomlinks">
+		<li> <a href="http://www.kea.dk/da/" style="padding-right: 15px;">KEA</a> </li>
+		<li> <a href="/cuteness" style="padding-left: 2px; padding-right: 10px;">Go Cute </a>  </li>
+		<li> <a href="/stuffies" style="padding-left: 2px; padding-right: 10px;">Create Customer </a>  </li>
+
+	</ul>
+</footer>
+</html>
