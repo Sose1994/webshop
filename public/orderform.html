@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order form</title>
+
+	<script type="text/javascript">
+	
+	function createOrder()
+	{
+		var formObject = 
+		{
+			customer ID: $( "#cusID" ).val(),
+			product ID: $( "#prodID" ).val(),
+
+		};
+		
+		$.ajax(
+		{
+    		url: 'orders',
+    		type: 'POST',
+    		data: JSON.stringify(formObject),
+    		contentType: 'application/json; charset=utf-8',
+    		dataType: 'json',
+    		async: false,
+    		success: function(msg) 
+    		{
+        		alert("You have successfully created an order");
+    		}
+		});
+	}
+	</script>
+</head>
+<body>
+
+	<h1>Create an order!</h1>
+
+	<div class="orderform">
+		<form id="order-form">
+			Customer ID:<br>
+			<input type="text" name="customerID" id="cusID"><br>
+
+			Product ID:<br>
+			<input type="number" name="productID" id="prodID"><br>
+
+			<input type="button" onclick="funky()" name="Create" value="Submit"><br>
+
+		</form>
+	</div>
+
+</body>
+</html>
