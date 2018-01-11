@@ -108,5 +108,9 @@ body
   align-content: center;
 }
 
-
+#lists
+{
+  display: flex;
+  flex-direction: row;
+}
 
