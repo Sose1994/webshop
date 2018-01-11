@@ -6,6 +6,19 @@
 	<link rel="stylesheet" type="text/css" href="styles/product-style.css">
 	<script type="text/javascript">
 	
+	$.getJSON('customer', function (data) {
+			var html = '';
+			
+			$.each(data, function () {
+				html += '<ol>';
+				$.each(this, function (key, val) {
+					html += ('<li>' + key + ': ' + val + '</li>');
+				});
+				html += '</ol> <hr style= "width: 300px;">';
+			});
+			$('#custom').html(html);
+		});
+
 	$.getJSON('products', function (data) {
 			var html = '';
 			
@@ -17,19 +30,6 @@
 				html += '</ol> <hr style= "width: 300px;">';
 			});
 			$('#prod').html(html);
-		});
-
-	$.getJSON('orders', function (data) {
-			var html = '';
-			
-			$.each(data, function () {
-				html += '<ol>';
-				$.each(this, function (key, val) {
-					html += ('<li>' + key + ': ' + val + '</li>');
-				});
-				html += '</ol> <hr style= "width: 300px;">';
-			});
-			$('#ord').html(html);
 		});
 
 	function createOrder()
@@ -83,8 +83,10 @@
 	</div>
 
 <div id="lists">
-	<div id="prod"></div>
-	<div id="ord"></div>
+	<div id="custom">
+		<h3>Customers</h3>
+	</div>
+	<div id="prod">Products</div>
 </div>
 </body>
 </html>
